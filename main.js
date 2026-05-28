@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const btnShowForm = document.getElementById('btn-show-form');
     const btnCancelForm = document.getElementById('btn-cancel-form');
 
-    // hiển thị danh sách dịch vụ ra màn hình
+    // hiển thị danh sách dịch vụ ra màn hình (AI tạo giúp em)
     function renderServices() {
         if (!serviceList) return;
         serviceList.innerHTML = ''; 
@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     inputName.value = service.name;
                     inputPrice.value = service.price;
                     inputDesc.value = service.desc;
-                    inputImage.value = service.image || ""; // Đổ link ảnh lên form để sửa
+                    inputImage.value = service.image || ""; 
                     
                     editingId = id; 
                     formTitle.textContent = "Cập Nhật Dịch Vụ";
