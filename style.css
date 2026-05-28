@@ -67,7 +67,7 @@ nav a:hover {
     color: #4a5d4e; 
 }
 
-/* --- 1. TRANG CHỦ (HERO) --- */
+/* --- 1. TRANG CHỦ --- */
 .hero { 
     height: 60vh; 
     background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 

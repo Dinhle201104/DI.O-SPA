@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    // Danh sách 3 dịch vụ mẫu xếp đúng thứ tự ảnh từ trên xuống (Facial -> Massage -> Sauna)
     let services = [
         { 
             id: 1, 
@@ -35,12 +34,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const inputName = document.getElementById('ten-dv');
     const inputPrice = document.getElementById('gia-dv');
     const inputDesc = document.getElementById('mo-ta-dv');
-    const inputImage = document.getElementById('anh-dv'); // Input đường dẫn ảnh
+    const inputImage = document.getElementById('anh-dv');
 
     const btnShowForm = document.getElementById('btn-show-form');
     const btnCancelForm = document.getElementById('btn-cancel-form');
 
-    // 1. Hàm hiển thị danh sách dịch vụ ra màn hình
+    // hiển thị danh sách dịch vụ ra màn hình
     function renderServices() {
         if (!serviceList) return;
         serviceList.innerHTML = ''; 
@@ -49,7 +48,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const card = document.createElement('div');
             card.className = 'card';
             
-            // Nếu người dùng không nhập ảnh, sử dụng một ảnh giữ chỗ mặc định
             const imgUrl = service.image || 'https://via.placeholder.com/300x180?text=DI.O+Spa';
             
             card.innerHTML = `
@@ -68,12 +66,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // 2. Hàm mở Form
     function openForm() { 
         if (formContainer) formContainer.classList.remove('hidden'); 
     }
 
-    // 3. Hàm đóng và reset Form
     function closeForm() {
         if (formContainer) formContainer.classList.add('hidden');
         if (serviceForm) serviceForm.reset();
@@ -81,11 +77,10 @@ document.addEventListener('DOMContentLoaded', function() {
         if (formTitle) formTitle.textContent = "Thêm Dịch Vụ Mới";
     }
 
-    // Lắng nghe sự kiện nút Thêm mới và nút Hủy
     if (btnShowForm) btnShowForm.addEventListener('click', openForm);
     if (btnCancelForm) btnCancelForm.addEventListener('click', closeForm);
 
-    // 4. Xử lý khi bấm nút "Lưu lại" (Submit Form)
+    // Xử lý khi bấm nút "Lưu lại" 
     if (serviceForm) {
         serviceForm.addEventListener('submit', function(e) {
             e.preventDefault(); 
@@ -96,7 +91,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const image = inputImage.value.trim();
 
             if (editingId === null) {
-                // Hành động: Thêm mới dịch vụ
                 services.push({ 
                     id: Date.now(),
                     name: name, 
@@ -105,7 +99,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     image: image
                 });
             } else {
-                // Hành động: Sửa / Cập nhật dịch vụ cũ
                 const idx = services.findIndex(s => s.id === editingId);
                 if (idx !== -1) {
                     services[idx].name = name;
@@ -120,10 +113,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // 5 & 6. Xử lý sự kiện bấm nút Sửa và Xóa (Event Delegation)
+    // sửa xóa dịch vụ
     if (serviceList) {
         serviceList.addEventListener('click', function(e) {
-            // Khi bấm nút Sửa
             if (e.target.classList.contains('btn-edit')) {
                 const id = parseInt(e.target.getAttribute('data-id'));
                 const service = services.find(s => s.id === id);
@@ -150,7 +142,5 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-
-    // Chạy render hiển thị dữ liệu lần đầu tiên
     renderServices();
 });
