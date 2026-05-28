@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DI.O Spa - Thư Giãn Tự Nhiên</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">DI.O SPA</div>
+        <nav>
+            <a href="#trang-chu">Trang Chủ</a>
+            <a href="#gioi-thieu">Giới Thiệu</a>
+            <a href="#dich-vu">Dịch Vụ</a>
+        </nav>
+    </header>
+
+    <section id="trang-chu" class="hero">
+        <div class="hero-content">
+            <h1>DI.O Spa — Thư Giãn Tự Nhiên</h1>
+            <p>Trải nghiệm không gian yên bình và các liệu pháp chăm sóc sức khỏe thuần tự nhiên.</p>
+            <a href="#dich-vu" class="btn btn-hero">Xem Các Gói Dịch Vụ</a>
+        </div>
+    </section>
+
+    <main class="container">
+
+        <section id="gioi-thieu">
+            <h2>Về Chúng Tôi</h2>
+            <div class="about-box">
+                <p>Chào mừng bạn đến với <strong>DI.O Spa</strong>, nơi chúng tôi nâng niu cơ thể và làm dịu tinh thần của bạn sau những ngày làm việc mệt mỏi.</p>
+                <p>Với phương châm "Sức khỏe đến từ tự nhiên", các liệu trình của DI.O Spa đều sử dụng 100% thảo mộc nguyên bản, kết hợp phương pháp bấm huyệt cổ truyền giúp lưu thông khí huyết tối đa.</p>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="dich-vu">
+            <div class="header-dich-vu">
+                <h2>Các Gói Liệu Trình Spa</h2>
+                <button id="btn-show-form" class="btn btn-add">+ Thêm dịch vụ mới</button>
+            </div>
+
+            <div id="form-container" class="form-card hidden">
+                <h3 id="form-title">Thêm Dịch Vụ Mới</h3>
+                <form id="service-form">
+                    <input type="text" id="ten-dv" placeholder="Tên dịch vụ (vd: Massage Cổ Vai Gáy)" required>
+                    <input type="text" id="gia-dv" placeholder="Giá tiền (vd: 300.000 VNĐ)" required>
+                    <input type="text" id="anh-dv" placeholder="Đường dẫn ảnh (vd: assets/massage.png)">
+                    <textarea id="mo-ta-dv" placeholder="Mô tả chi tiết các bước trong gói..." required></textarea>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-save">Lưu lại</button>
+                        <button type="button" id="btn-cancel-form" class="btn btn-cancel">Hủy</button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="service-list" class="service-grid">
+                </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 DI.O Spa. Tối giản - Tự nhiên - Tận tâm.</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

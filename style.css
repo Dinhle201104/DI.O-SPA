@@ -1,0 +1,235 @@
+/* --- THIẾT LẬP CƠ BẢN & NHẸ --- */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: Arial, sans-serif; 
+    scroll-behavior: smooth; 
+}
+
+body { 
+    color: #333; 
+    line-height: 1.6; 
+    background-color: #fbfbfb; 
+    padding-top: 70px; 
+}
+
+.container { 
+    max-width: 1000px; 
+    margin: 0 auto; 
+    padding: 40px 20px; 
+}
+
+h2 { 
+    color: #222; 
+    text-align: center; 
+    margin-bottom: 30px; 
+    font-size: 1.8rem; 
+}
+
+hr { 
+    border: 0; 
+    border-top: 1px solid #eee; 
+    margin: 40px 0; 
+}
+
+/* --- THANH MENU CỐ ĐỊNH --- */
+header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 15px 40px; 
+    background: #fff; 
+    border-bottom: 1px solid #eee; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    z-index: 1000; 
+}
+
+.logo { 
+    font-weight: bolder; 
+    font-size: 1.5rem; 
+    color: #4a5d4e; 
+    letter-spacing: 1px; 
+}
+
+nav a { 
+    text-decoration: none; 
+    color: #555; 
+    margin-left: 20px; 
+    font-weight: bold; 
+    font-size: 0.95rem; 
+}
+
+nav a:hover { 
+    color: #4a5d4e; 
+}
+
+/* --- 1. TRANG CHỦ (HERO) --- */
+.hero { 
+    height: 60vh; 
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                url('assets/hero_bg.png') no-repeat center center/cover;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center; 
+    color: #fff;
+}
+
+.hero-content h1 { 
+    font-size: 2.5rem; 
+    margin-bottom: 15px; 
+}
+
+.hero-content p { 
+    font-size: 1.1rem; 
+    margin-bottom: 25px; 
+    opacity: 0.9; 
+}
+
+/* --- NÚT BẤM CHUNG --- */
+.btn { 
+    padding: 9px 18px; 
+    border: none; 
+    cursor: pointer; 
+    border-radius: 4px; 
+    font-weight: bold; 
+    text-decoration: none; 
+    display: inline-block; 
+}
+
+.btn-hero { background: #4a5d4e; color: white; font-size: 1rem; }
+.btn-hero:hover { background: #38463b; }
+.btn-add { background: #2e7d32; color: white; }
+.btn-save { background: #1565c0; color: white; }
+.btn-cancel { background: #9e9e9e; color: white; }
+.btn-edit { background: #ef6c00; color: white; font-size: 0.8rem; padding: 5px 10px; }
+.btn-delete { background: #c62828; color: white; font-size: 0.8rem; padding: 5px 10px; }
+
+/* --- 2. TRANG GIỚI THIỆU --- */
+.about-box { 
+    background: #fff; 
+    padding: 30px; 
+    border-radius: 8px; 
+    border: 1px solid #eee; 
+    text-align: center; 
+    max-width: 700px; 
+    margin: 0 auto; 
+}
+
+.about-box p { 
+    margin-bottom: 15px; 
+    color: #555; 
+}
+
+/* --- 3. QUẢN LÝ DỊCH VỤ & FORM --- */
+.header-dich-vu { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 20px; 
+}
+
+.hidden { 
+    display: none !important; 
+}
+
+.form-card { 
+    background: #fff; 
+    border: 1px solid #ddd; 
+    padding: 25px; 
+    margin-bottom: 25px; 
+    border-radius: 6px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
+}
+
+.form-card h3 { 
+    margin-bottom: 15px; 
+    color: #333; 
+}
+
+form input, form textarea { 
+    width: 100%; 
+    padding: 10px; 
+    margin-bottom: 12px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    font-size: 0.95rem; 
+}
+
+form textarea { 
+    height: 80px; 
+    resize: vertical; 
+}
+
+.form-actions { 
+    display: flex; 
+    gap: 10px; 
+}
+
+/* --- LƯỚI THẺ DỊCH VỤ --- */
+.service-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+    gap: 20px; 
+}
+
+.card { 
+    background: #fff; 
+    border: 1px solid #eee; 
+    padding: 20px; 
+    border-radius: 6px; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02); 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
+    overflow: hidden;
+}
+
+/* Định dạng hình ảnh của dịch vụ */
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 12px;
+}
+
+.card h4 { 
+    margin-bottom: 8px; 
+    font-size: 1.15rem; 
+    color: #222; 
+}
+
+.card .price { 
+    color: #c62828; 
+    font-weight: bold; 
+    margin-bottom: 10px; 
+    font-size: 1.05rem; 
+}
+
+.card .desc { 
+    font-size: 0.9rem; 
+    color: #666; 
+    margin-bottom: 20px; 
+    flex-grow: 1; 
+}
+
+.card-actions { 
+    display: flex; 
+    gap: 8px; 
+}
+
+/* --- FOOTER --- */
+footer { 
+    text-align: center; 
+    padding: 20px; 
+    background: #fff; 
+    border-top: 1px solid #eee; 
+    color: #777; 
+    font-size: 0.9rem; 
+    margin-top: 40px; 
+}
