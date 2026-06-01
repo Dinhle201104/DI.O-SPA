@@ -39,7 +39,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const btnShowForm = document.getElementById('btn-show-form');
     const btnCancelForm = document.getElementById('btn-cancel-form');
 
-    // hiển thị danh sách dịch vụ ra màn hình (AI tạo giúp em)
+    // Các phần tử mới cho chức năng Đặt Lịch
+    const bookingServiceInput = document.getElementById('booking-service');
+    const bookingForm = document.getElementById('booking-form');
+
+    // Hiển thị danh sách dịch vụ ra màn hình
     function renderServices() {
         if (!serviceList) return;
         serviceList.innerHTML = ''; 
@@ -57,6 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="price">${service.price}</div>
                     <div class="desc">${service.desc}</div>
                 </div>
+                <button class="btn btn-select" data-name="${service.name}" style="margin-bottom: 10px; text-align: center;">Chọn Dịch Vụ Này</button>
                 <div class="card-actions">
                     <button class="btn btn-edit" data-id="${service.id}">Sửa</button>
                     <button class="btn btn-delete" data-id="${service.id}">Xóa</button>
@@ -114,6 +119,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (serviceList) {
         serviceList.addEventListener('click', function(e) {
+            // XỬ LÝ KHI NHẤN NÚT "CHỌN DỊCH VỤ NÀY"
+            if (e.target.classList.contains('btn-select')) {
+                const serviceName = e.target.getAttribute('data-name');
+                if (bookingServiceInput) {
+                    bookingServiceInput.value = serviceName; // Điền tên dịch vụ vào ô input
+                    // Cuộn mượt mà xuống phần form đặt lịch
+                    document.getElementById('dat-lich').scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+
+            // Xử lý nút Sửa
             if (e.target.classList.contains('btn-edit')) {
                 const id = parseInt(e.target.getAttribute('data-id'));
                 const service = services.find(s => s.id === id);
@@ -130,6 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
             
+            // Xử lý nút Xóa
             if (e.target.classList.contains('btn-delete')) {
                 const id = parseInt(e.target.getAttribute('data-id'));
                 if (confirm("Bạn có chắc chắn muốn xóa dịch vụ này không?")) {
@@ -139,5 +156,27 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    // XỬ LÝ SỰ KIỆN SUBMIT FORM ĐẶT LỊCH
+    if (bookingForm) {
+        bookingForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const selectedService = bookingServiceInput.value;
+            const customerName = document.getElementById('customer-name').value.trim();
+            const customerPhone = document.getElementById('customer-phone').value.trim();
+            const bookingDate = document.getElementById('booking-date').value;
+
+            if (!selectedService) {
+                alert("Vui lòng chọn một gói dịch vụ ở phía trên trước!");
+                return;
+            }
+
+            // Hiện thông báo thành công (sau này có thể kết nối gửi về email/database)
+            alert(`Chúc mừng ${customerName}!\nBạn đã đặt lịch thành công gói: ${selectedService}\nThời gian: ${bookingDate.replace('T', ' ')}\nDI.O Spa sẽ liên hệ bạn qua SĐT ${customerPhone} để xác nhận.`);
+            
+            bookingForm.reset(); // Xóa trắng form sau khi đặt thành công
+        });
+    }
+
     renderServices();
 });

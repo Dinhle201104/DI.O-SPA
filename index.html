@@ -61,6 +61,28 @@
             <div id="service-list" class="service-grid">
                 </div>
         </section>
+        <hr>
+
+        <section id="dat-lich" class="booking-section">
+            <h2>Đăng Ký Đặt Lịch Hẹn</h2>
+            <div class="form-card">
+                <form id="booking-form">
+                    <label for="booking-service">Dịch vụ đã chọn:</label>
+                    <input type="text" id="booking-service" placeholder="Chưa có dịch vụ nào được chọn" readonly style="background: #f0f0f0; font-weight: bold; color: #4a5d4e;">
+
+                    <label for="customer-name">Họ và tên của bạn:</label>
+                    <input type="text" id="customer-name" placeholder="Ví dụ: Nguyễn Văn A" required>
+
+                    <label for="customer-phone">Số điện thoại:</label>
+                    <input type="tel" id="customer-phone" placeholder="Ví dụ: 0912345xxx" required>
+
+                    <label for="booking-date">Ngày & Giờ hẹn:</label>
+                    <input type="datetime-local" id="booking-date" required>
+
+                    <button type="submit" class="btn btn-hero" style="width: 100%; margin-top: 10px;">Xác Nhận Đặt Lịch</button>
+                </form>
+            </div>
+        </section>
 
     </main>
 
