@@ -80,7 +80,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (btnShowForm) btnShowForm.addEventListener('click', openForm);
     if (btnCancelForm) btnCancelForm.addEventListener('click', closeForm);
 
-    // Xử lý khi bấm nút "Lưu lại" 
     if (serviceForm) {
         serviceForm.addEventListener('submit', function(e) {
             e.preventDefault(); 
@@ -113,7 +112,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // sửa xóa dịch vụ
     if (serviceList) {
         serviceList.addEventListener('click', function(e) {
             if (e.target.classList.contains('btn-edit')) {
@@ -132,7 +130,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
             
-            // Khi bấm nút Xóa
             if (e.target.classList.contains('btn-delete')) {
                 const id = parseInt(e.target.getAttribute('data-id'));
                 if (confirm("Bạn có chắc chắn muốn xóa dịch vụ này không?")) {
