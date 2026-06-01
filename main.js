@@ -39,11 +39,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const btnShowForm = document.getElementById('btn-show-form');
     const btnCancelForm = document.getElementById('btn-cancel-form');
 
-    // Các phần tử mới cho chức năng Đặt Lịch
     const bookingServiceInput = document.getElementById('booking-service');
     const bookingForm = document.getElementById('booking-form');
 
-    // Hiển thị danh sách dịch vụ ra màn hình
     function renderServices() {
         if (!serviceList) return;
         serviceList.innerHTML = ''; 
@@ -119,7 +117,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (serviceList) {
         serviceList.addEventListener('click', function(e) {
-            // XỬ LÝ KHI NHẤN NÚT "CHỌN DỊCH VỤ NÀY"
             if (e.target.classList.contains('btn-select')) {
                 const serviceName = e.target.getAttribute('data-name');
                 if (bookingServiceInput) {
@@ -129,7 +126,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
 
-            // Xử lý nút Sửa
             if (e.target.classList.contains('btn-edit')) {
                 const id = parseInt(e.target.getAttribute('data-id'));
                 const service = services.find(s => s.id === id);
@@ -146,7 +142,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
             
-            // Xử lý nút Xóa
             if (e.target.classList.contains('btn-delete')) {
                 const id = parseInt(e.target.getAttribute('data-id'));
                 if (confirm("Bạn có chắc chắn muốn xóa dịch vụ này không?")) {
@@ -157,7 +152,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // XỬ LÝ SỰ KIỆN SUBMIT FORM ĐẶT LỊCH
     if (bookingForm) {
         bookingForm.addEventListener('submit', function(e) {
             e.preventDefault();
